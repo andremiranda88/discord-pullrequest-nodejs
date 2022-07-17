@@ -1,0 +1,13 @@
+{
+    "INVALID_ARGUMENTS": [
+        {
+            "name": "USAGE",
+            "value": ".pull-request <url> <jira> <description-with-brackets> <role>"
+        },
+        {
+            "name": "EXAMPLE",
+            "value": ".pull-request https://test.com/ feature(OAKB-123) this-is-a-new-feature @DEVS"
+        }
+    ],
+    "EMPTY": []
+}
