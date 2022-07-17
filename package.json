@@ -1,0 +1,17 @@
+{
+  "name": "pacman",
+  "version": "1.0.0",
+  "description": "pacman discord bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "André Miranda",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
