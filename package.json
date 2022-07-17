@@ -4,7 +4,7 @@
   "description": "pacman discord bot",
   "main": "main.js",
   "scripts": {
-    "test": "npm run test"
+    "test": ""
   },
   "author": "André Miranda",
   "license": "ISC",
