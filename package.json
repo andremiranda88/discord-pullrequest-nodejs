@@ -2,9 +2,10 @@
   "name": "pacman",
   "version": "1.0.0",
   "description": "pacman discord bot",
-  "main": "main.js",
+  "main": "./features/main.js",
   "scripts": {
-    "test": ""
+    "test": "",
+    "start": "node ./features/main.js"
   },
   "author": "André Miranda",
   "license": "ISC",
