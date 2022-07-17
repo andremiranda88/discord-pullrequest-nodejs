@@ -1,11 +1,13 @@
 # Discord bot - Pull Request
 ## pacman
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-
 This bot is made to in node.js to request a pull request by a command
 
+#
+
+![Nodejs](https://brandslogos.com/wp-content/uploads/thumbs/nodejs-logo-vector.svg)
+
+#
 ## Features
 
 Commands available:
