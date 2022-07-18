@@ -1,5 +1,5 @@
 
-const { error } = require('./errors')
+const { error } = require('./messages')
 
 const getMemberListIdByRole = function (msg, role, allMembers) {
     let roleMembers = allMembers

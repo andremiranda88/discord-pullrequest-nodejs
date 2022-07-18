@@ -1,4 +1,4 @@
-const { error } = require("./errors");
+const { error } = require("./messages");
 const { isValidUrl } = require("./helpers");
 
 const getArgs = function (msg, params) {

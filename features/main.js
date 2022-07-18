@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const config = require('../config.json');
 
 
-const { pullRequest } = require('./pull-request/usecase')
+const { pullRequest, deletePullRequest } = require('./pull-request/usecase')
 
 const client = new Discord.Client({ intents: config.intents })
 
@@ -18,7 +18,10 @@ client.on("messageCreate", async msg => {
   getMessage(msg)
 
   function getMessage(msg) {
-    if (msg.content.startsWith(".pull-request")) {
+
+    if (msg.content.startsWith(".pull-request --delete")) {
+      deletePullRequest(client, msg)
+    } else if (msg.content.startsWith(".pull-request")) {
       pullRequest(client, msg, allMembers)
     }
   }
