@@ -11,4 +11,13 @@ const error = function (msg, title, type) {
     throw new Error(title)
 }
 
-module.exports = { error }
+const success = function (msg, title, type) {
+    const exampleEmbed = new MessageEmbed()
+        .setColor('#00C96B')
+        .setTitle(title)
+        .addFields(types[type]);
+
+    msg.channel.send({ embeds: [exampleEmbed] })
+}
+
+module.exports = { error, success }
