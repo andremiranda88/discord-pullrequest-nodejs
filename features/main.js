@@ -1,11 +1,13 @@
 const Discord = require("discord.js")
 const config = require('../config.json');
+const { keepAlive } = require('../server.js')
 
 
 const { pullRequest, deletePullRequest } = require('./pull-request/usecase')
 
 const client = new Discord.Client({ intents: config.intents })
 
+keepAlive()
 client.login(config.token)
 
 client.on("ready", () => {
