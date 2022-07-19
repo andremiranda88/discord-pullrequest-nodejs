@@ -4,6 +4,7 @@ const { getArgs, validateParams } = require('../utils/params')
 const { getMemberListIdByRole } = require('../utils/roles')
 const { getRandomMembers } = require('../utils/members')
 const { deleteThread } = require("../utils/threads")
+const { rotateStack } = require("../utils/rotation")
 
 const pullRequest = async function (client, msg, members) {
 
@@ -15,8 +16,9 @@ const pullRequest = async function (client, msg, members) {
         const author = msg.author.id
         const membersWithRole = getMemberListIdByRole(msg, args.role, members)
         const randomUsers = getRandomMembers(membersWithRole, author, 2)
+        const rotate = rotateStack(args.role, membersWithRole, randomUsers)
 
-        await createPullRequestThread(msg, args, client, randomUsers)
+        await createPullRequestThread(msg, args, client, rotate)
         console.log(`\n-------------------------------------\n\n`)
 
     } catch (e) {

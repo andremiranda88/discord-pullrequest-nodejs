@@ -3,7 +3,7 @@ const config = require('../config.json');
 const { keepAlive } = require('../server.js')
 
 
-const { pullRequest, deletePullRequest } = require('./pull-request/usecase')
+const { pullRequest, deletePullRequest } = require('./pull-request/usecase');
 
 const client = new Discord.Client({ intents: config.intents })
 
