@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const config = require('../config.json');
 
 
-const { pullRequest, deletePullRequest } = require('./pull-request/usecase')
+const { pullRequest, deletePullRequest } = require('./pull-request/usecase');
 
 const client = new Discord.Client({ intents: config.intents })
 
