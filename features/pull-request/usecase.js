@@ -4,30 +4,30 @@ const { getArgs, validateParams } = require('../utils/params')
 const { getMemberListIdByRole } = require('../utils/roles')
 const { getRandomMembers } = require('../utils/members')
 const { deleteThread } = require("../utils/threads")
-const { rotateStack } = require("../utils/rotation")
+// const { rotateStack } = require("../utils/rotation")
 const { rotateStackWithDb } = require("../utils/dbRotation")
 
+// const pullRequest = async function (client, msg, members) {
+
+//     try {
+
+//         console.log(`\n\n-------------------------------------\n`)
+//         const params = validateParams(msg)
+//         const args = getArgs(msg, params)
+//         const author = msg.author.id
+//         const membersWithRole = getMemberListIdByRole(msg, args.role, members)
+//         const randomUsers = getRandomMembers(membersWithRole, author, 2)
+//         const rotate = rotateStack(args.role, membersWithRole, randomUsers)
+
+//         await createPullRequestThread(msg, args, client, rotate)
+//         console.log(`\n-------------------------------------\n\n`)
+
+//     } catch (e) {
+//         console.log(e)
+//     }
+// }
+
 const pullRequest = async function (client, msg, members) {
-
-    try {
-
-        console.log(`\n\n-------------------------------------\n`)
-        const params = validateParams(msg)
-        const args = getArgs(msg, params)
-        const author = msg.author.id
-        const membersWithRole = getMemberListIdByRole(msg, args.role, members)
-        const randomUsers = getRandomMembers(membersWithRole, author, 2)
-        const rotate = rotateStack(args.role, membersWithRole, randomUsers)
-
-        await createPullRequestThread(msg, args, client, rotate)
-        console.log(`\n-------------------------------------\n\n`)
-
-    } catch (e) {
-        console.log(e)
-    }
-}
-
-const pullRequestNew = async function (client, msg, members) {
 
     try {
 
@@ -63,4 +63,4 @@ const deletePullRequest = async function (client, msg) {
     }
 }
 
-module.exports = { pullRequest, deletePullRequest, pullRequestNew }
+module.exports = { pullRequest, deletePullRequest }
