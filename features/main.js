@@ -8,7 +8,7 @@ const { pullRequest, deletePullRequest, pullRequestNew } = require('./pull-reque
 const client = new Discord.Client({ intents: config.intents })
 
 keepAlive()
-client.login(config.token)
+client.login(process.env.TOKEN)
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)

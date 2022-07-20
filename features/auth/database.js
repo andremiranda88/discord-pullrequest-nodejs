@@ -1,10 +1,12 @@
 const Database = require("@replit/database");
 
 const getDatabaseValue = async function (key) {
+  
     const replit = new Database();
+  
     const getValue = await replit.get(key);
     console.log('-------------');
-    console.log(`Database - Method[GET] Key[${key}] value[${getValue}]`);
+    console.log(`Database - Method[GET] Key[${key}] value[${JSON.stringify(getValue)}]`);
     console.log('-------------');
 
     return getValue
@@ -14,7 +16,7 @@ const setDatabaseValue = async function (key, value) {
     const replit = new Database();
     const setValue = await replit.set(key, value);
     console.log('-------------');
-    console.log(`Database - Method[SET] Key[${key}] value[${value}]`);
+    console.log(`Database - Method[SET] Key[${key}] value[${JSON.stringify(value)}]`);
     console.log('-------------');
 
     return setValue

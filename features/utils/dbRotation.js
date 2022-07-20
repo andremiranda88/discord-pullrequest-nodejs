@@ -1,10 +1,9 @@
-const { getDatabaseValue } = require('../auth/database')
+const { getDatabaseValue, setDatabaseValue } = require('../auth/database')
 
 const ROTATE_STACK = "randomUserRotationByRole"
 
-const rotateStackWithDb = function (roleId, members, selectedMembers) {
-    const roleList = createRoleInStack(roleId, members, selectedMembers)
-
+const rotateStackWithDb = async function (roleId, members, selectedMembers) {
+    const roleList = await createRoleInStack(roleId, members, selectedMembers)
     if (roleList.create || roleList.getRoleStack[roleId] == undefined) {
         return selectedMembers
     }
@@ -21,23 +20,36 @@ const rotateStackWithDb = function (roleId, members, selectedMembers) {
             })
         }
         roleList.getRoleStack[roleId].push(usedMember)
-        setDatabaseValue(ROTATE_STACK, roleList.getRoleStack)
         return usedMember
     });
 
+  
+    await setDatabaseValue(ROTATE_STACK, roleList.getRoleStack)
     return newMembers
 }
 
-const createRoleInStack = function (roleId, members, selectedMembers) {
-    const stack = getDatabaseValue(ROTATE_STACK)
+const createRoleInStack = async function (roleId, members, selectedMembers) {
+    let stack = await getDatabaseValue(ROTATE_STACK)
     let create = false
-    if (stack == undefined || stack.length == members.length || stack.length == (members.length - 1)) {
+    if (isInvalidValidStack(stack, members, roleId)) {
+        if(stack == null) stack = { }
         stack[roleId] = selectedMembers
-        setDatabaseValue(ROTATE_STACK, stack)
+        await setDatabaseValue(ROTATE_STACK, stack)
         create = true
     }
 
     return { getRoleStack: stack, create }
+}
+
+const isInvalidValidStack = function (stack, members, roleId) {
+  return (
+      stack == undefined || 
+      stack == null ||
+      stack.length === 0 ||
+      stack[roleId].length === 0 ||
+      stack[roleId].length == members.length || 
+      stack[roleId].length == (members.length - 1)
+  )
 }
 
 module.exports = { rotateStackWithDb }
