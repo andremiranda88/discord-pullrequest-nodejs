@@ -3,7 +3,7 @@ const config = require('../config.json');
 const { keepAlive } = require('../server.js')
 
 
-const { pullRequest, deletePullRequest, pullRequestNew } = require('./pull-request/usecase');
+const { pullRequest, deletePullRequest } = require('./pull-request/usecase');
 
 const client = new Discord.Client({ intents: config.intents })
 
@@ -25,8 +25,6 @@ client.on("messageCreate", async msg => {
       deletePullRequest(client, msg)
     } else if (msg.content.startsWith(".pull-request")) {
       pullRequest(client, msg, allMembers)
-    } else if (msg.content.startsWith(".new")) {
-      pullRequestNew(client, msg, allMembers)
     }
   }
 })
