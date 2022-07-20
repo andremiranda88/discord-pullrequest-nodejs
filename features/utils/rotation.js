@@ -27,7 +27,7 @@ const rotateStack = function (roleId, members, selectedMembers) {
 const createRoleInStack = function (roleId, members, selectedMembers) {
     const stack = ROTATE_STACK[roleId]
     let create = false
-    if (stack == undefined || stack.length == members.length) {
+    if (stack == undefined || stack.length == members.length || stack.length == (members.length - 1)) {
         ROTATE_STACK[roleId] = selectedMembers
         create = true
     }
