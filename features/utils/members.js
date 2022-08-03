@@ -1,9 +1,13 @@
 const config = require('./../../config.json')
 
-const getRandomMembers = function (members, author, n) {
+const getRandomMembers = function (members, n) {
     return members
-        .filter(m => m !== author)
         .sort(() => .5 - Math.random()).slice(0, n)
 }
 
-module.exports = { getRandomMembers } 
+const removeAuthor = function (members, author) {
+    return members
+        .filter(m => m !== author)
+}
+
+module.exports = { getRandomMembers, removeAuthor } 
