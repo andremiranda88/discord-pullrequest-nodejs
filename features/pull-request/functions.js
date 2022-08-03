@@ -20,7 +20,7 @@ const pullRequestEmbed = function (msg, channel, args, users) {
     const embed = new MessageEmbed()
         .setTitle(`${args.type}`)
         .setURL(args.url)
-        .setColor('#B700FF')
+        .setColor(msg.member.displayHexColor)
         .addField("URL", `${args.url}`)
         .addField("Author", `<@${msg.author.id}>`)
         .setDescription(args.description)
