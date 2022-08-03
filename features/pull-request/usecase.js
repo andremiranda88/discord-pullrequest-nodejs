@@ -38,7 +38,8 @@ const pullRequest = async function(client, msg, members) {
     const membersWithRole = getMemberListIdByRole(msg, args.role, members)
     const membersWithoutAuthor = removeAuthor(membersWithRole, author)
     const randomUsers = getRandomMembers(membersWithoutAuthor, 2)
-    const rotate = rotateStackWithDb(args.role, membersWithoutAuthor, randomUsers)
+    const rotate = await rotateStackWithDb(args.role, membersWithoutAuthor, randomUsers)
+
 
     await createPullRequestThread(msg, args, client, rotate)
     console.log(`\n-------------------------------------\n\n`)
